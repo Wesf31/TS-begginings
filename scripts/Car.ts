@@ -11,3 +11,11 @@ class Car {
         alert('Engine stopped: ' + this.engine)
     }
 }
+
+window.onload = function () {
+    var car = new Car(
+        'V8'
+    )
+    car.start()
+    car.stop()
+}
