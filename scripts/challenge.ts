@@ -1,13 +1,25 @@
 function translateToMorse(morseCode: string): string {
     var morseConverted = []
     morseCode.split("").map(function (code) {
-        code.split("").map(function (dot) {
+        code.split('').map(function (dot) {
             morseConverted.push(morse[dot]);
         });
         morseConverted.push(" ")
     });
     return morseConverted.join('') 
 }
+var mCode: string = `i miss japanese ramen`
+
+function testFunc(param: string) {
+    var finMessage = []
+    return param.split("")
+}
+
+// console.log(testFunc(mCode))
+
+// console.log(mCode.split(''))
+
+
 
 function translateToEnglish(str: string): string {
     var messageConverted = []
@@ -21,7 +33,6 @@ function translateToEnglish(str: string): string {
 }
 
 var str: string = '.. / -- .. ... ... / .--- .- .--. .- -. . ... . / .-. .- -- . -. -.-.--'
-var mCode: string = `i miss japanese ramen`
 var alphabet: object = {  
    "-----":"0",
    ".----":"1",
@@ -106,5 +117,5 @@ var morse: object = {
     ".":"·-·-·-",
     ",":"--··--"
  };
-console.log(translateToEnglish(str))
-console.log(translateToMorse(mCode))
+// console.log(translateToEnglish(str))
+// console.log(translateToMorse(mCode))
