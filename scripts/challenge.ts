@@ -13,11 +13,15 @@ var mCode: string = `i miss japanese ramen`
 function testFunc(param: string) {
     var finMessage = []
     var spil = param.split(" ")
+    console.log(spil)
     spil.map(function (word) {
 
     } )
-    return spil.map(function (word){
-        
+     spil.map(function (word){
+        word.split(' ')
+        .map(function (letter) {
+            return (alphabet[letter])
+        })
     })
 }
 
