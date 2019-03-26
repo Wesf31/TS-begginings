@@ -1,6 +1,6 @@
-function translateToMorse(morseCode: string): string {
+function translateToMorse(testString: string): string {
     var morseConverted = []
-    morseCode.split("").map(function (code) {
+    testString.split("").map(function (code) {
         code.split('').map(function (dot) {
             morseConverted.push(morse[dot]);
         });
@@ -11,7 +11,7 @@ function translateToMorse(morseCode: string): string {
 
 function translateToEnglish(str: string): string {
     var messageConverted = []
-    str.split("   ").map(function (word) {
+    str.split("/").map(function (word) {
         word.split(" ").map(function (letter) {
             messageConverted.push(alphabet[letter]);
         });
@@ -105,6 +105,8 @@ var morse: object = {
     "!":"-·-·--",
     ".":"·-·-·-",
     ",":"--··--"
- };
+};
 console.log(translateToEnglish(testCode))
 console.log(translateToMorse(testString))
+console.log(translateToEnglish(''))
+console.log(translateToMorse(''))
