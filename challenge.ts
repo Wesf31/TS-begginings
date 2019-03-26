@@ -106,5 +106,5 @@ var morse: object = {
     ".":"·-·-·-",
     ",":"--··--"
  };
-// console.log(translateToEnglish(testCode))
-// console.log(translateToMorse(testString))
+console.log(translateToEnglish(testCode))
+console.log(translateToMorse(testString))
