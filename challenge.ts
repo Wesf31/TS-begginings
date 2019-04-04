@@ -1,7 +1,7 @@
-function translateToMorse(morseCode: string): string {
+function translateToMorse(testString: string): string {
     var morseConverted = []
-    morseCode.split("").map(function (code) {
-        code.split("").map(function (dot) {
+    testString.split("").map(function (code) {
+        code.split('').map(function (dot) {
             morseConverted.push(morse[dot]);
         });
         morseConverted.push(" ")
@@ -11,7 +11,7 @@ function translateToMorse(morseCode: string): string {
 
 function translateToEnglish(str: string): string {
     var messageConverted = []
-    str.split("   ").map(function (word) {
+    str.split("/").map(function (word) {
         word.split(" ").map(function (letter) {
             messageConverted.push(alphabet[letter]);
         });
@@ -20,8 +20,8 @@ function translateToEnglish(str: string): string {
    return messageConverted.join('')
 }
 
-var str: string = '.. / -- .. ... ... / .--- .- .--. .- -. . ... . / .-. .- -- . -. -.-.--'
-var mCode: string = `i miss japanese ramen`
+var testString: string = `i miss japanese ramen`
+var testCode: string = '.. / -- .. ... ... / .--- .- .--. .- -. . ... . / .-. .- -- . -. -.-.--'
 var alphabet: object = {  
    "-----":"0",
    ".----":"1",
@@ -105,6 +105,8 @@ var morse: object = {
     "!":"-·-·--",
     ".":"·-·-·-",
     ",":"--··--"
- };
-console.log(translateToEnglish(str))
-console.log(translateToMorse(mCode))
+};
+console.log(translateToEnglish(testCode))
+console.log(translateToMorse(testString))
+console.log(translateToEnglish(''))
+console.log(translateToMorse(''))
