@@ -1,6 +1,10 @@
 function questionsMarks(str: string) : string {
     // console.log(str.split('').find(x => x == '?'))
- return str.split('').find(x => x == '?')
+    let resArr = []
+    let newArr = str.split('').map(x => x * 1).filter(x => x)
+    console.log(newArr)
+
+
 }
 
 let testData: string = 'aa6?9'
