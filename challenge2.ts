@@ -1,5 +1,5 @@
 function QuestionsMarks(str: string) : string {
-    return 
+    return 'true'
 }
 
 let testData: string = 'aa6?9'
