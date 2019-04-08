@@ -3,7 +3,7 @@ function questionsMarks(str: string) : string {
     let resArr = []
     let newArr = str.split('').map(x => x * 1).filter(x => x)
     console.log(newArr)
-
+    return 
 
 }
 
