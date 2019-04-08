@@ -6,7 +6,7 @@ function questionsMarks(str: string) : string {
 let testData: string = 'aa6?9'
 let testData1: string = 'acc?7??sss?3rr1?????????5'
 
-questionsMarks(testData) 
+console.log(questionsMarks(testData))
 // Have the function QuestionsMarks(str) take the str string parameter, which will contain single 
 // digit numbers, letters, and question marks, and check if there are exactly 3 question marks
 // between every pair of two numbers that add up to 10. If so, then your program should return the 
