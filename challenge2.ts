@@ -1,6 +1,5 @@
 function questionsMarks(str: string) : string {
     let arr = str.split('')
-    console.log(arr)
     let checkArr = arr.map(x => x * 1).filter(x => x)
         console.log (checkArr)
     if (!checkArr[1]){
@@ -10,19 +9,30 @@ function questionsMarks(str: string) : string {
         let digit
         let i
         for ( i = 0; i < arr.length; counter1 === 2) {
-            if (typeof arr[i] === 'number'){
+            if (arr[i] === '?'){
                 counter1++
             }
+            // another if 
         }
 
     }
 }
 let testData: string = 'aa6??a?s3'
 let testData1: string = 'acc?7??sss?3rr1?????????5'
-
-
-
 console.log(questionsMarks(testData))
+
+
+// notes from mentorship
+// regex / regular expressions, can use to make more simple, Search for Regex cheat sheet
+// const matches = str.match(/\d[\w\?]*?\d/g), run original str through this and then console log it, work from there
+// Number("345")
+// Google how to change a string into a number JS, there is a short hand though -> const num = +"345";
+
+
+
+
+
+
 // Have the function QuestionsMarks(str) take the str string parameter, which will contain single 
 // digit numbers, letters, and question marks, and check if there are exactly 3 question marks
 // between every pair of two numbers that add up to 10. If so, then your program should return the 
