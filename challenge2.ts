@@ -1,13 +1,24 @@
 function questionsMarks(str: string) : string {
-    // console.log(str.split('').find(x => x == '?'))
-    let resArr = []
-    let checkArr = str.split('').map(x => x * 1).filter(x => x)
-    console.log(checkArr)
-    return 
+    let arr = str.split('')
+    console.log(arr)
+    let checkArr = arr.map(x => x * 1).filter(x => x)
+        console.log (checkArr)
+    if (!checkArr[2]){
+        return 'false'
+    }else{
+        let indexOne = []
+        let indexTwo = []
+        let counter = 0
+        let i
+        for ( i = 0; i < arr.length; counter === 3) {
+            if (arr[i] == '?'){
+                counter++
+            }
+        }
 
+    }
 }
-
-let testData: string = 'aa6?9'
+let testData: string = 'aa6??a?4'
 let testData1: string = 'acc?7??sss?3rr1?????????5'
 
 console.log(questionsMarks(testData))
