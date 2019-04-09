@@ -6,22 +6,21 @@ function questionsMarks(str: string) : string {
     if (!checkArr[1]){
         return 'false' 
     }else{
-        let indexOne = []
-        let indexTwo = []
-        let counter = 0
+        let counter1 = 0
+        let digit
         let i
-        for ( i = 0; i < arr.length; counter === 2) {
+        for ( i = 0; i < arr.length; counter1 === 2) {
             if (typeof arr[i] === 'number'){
-                counter++
+                counter1++
             }
         }
 
     }
 }
-let testData: string = 'aa6??a?3'
+let testData: string = 'aa6??a?s3'
 let testData1: string = 'acc?7??sss?3rr1?????????5'
 
-console.log('hell ya')
+
 
 console.log(questionsMarks(testData))
 // Have the function QuestionsMarks(str) take the str string parameter, which will contain single 
@@ -31,5 +30,6 @@ console.log(questionsMarks(testData))
 // to 10 in the string, then your program should return string false as well.
 
 // 1) check and make sure there are two digits
-// 2) find the first two digits 
-// 3) 
+// 2) find the first digit, save on variable
+// 3) from that digit check and see if there are exactly 3 question marks, for loop and increment counter
+// 4) if there is and the first digit and last when summed should equal 10 then return 'true', else 'false' 
