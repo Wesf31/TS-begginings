@@ -18,7 +18,7 @@ function questionsMarks(str: string) : string {
 
     }
 }
-let testData: string = 'aa6??a?4'
+let testData: string = 'aa6??a?3'
 let testData1: string = 'acc?7??sss?3rr1?????????5'
 
 console.log(questionsMarks(testData))
