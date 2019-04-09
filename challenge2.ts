@@ -1,21 +1,23 @@
 function questionsMarks(str: string) : string {
-    let arr = str.split('')
-    let checkArr = arr.map(x => x * 1).filter(x => x)
-        console.log (checkArr)
-    if (!checkArr[1]){
-        return 'false' 
-    }else{
-        let counter1 = 0
-        let digit
-        let i
-        for ( i = 0; i < arr.length; counter1 === 2) {
-            if (arr[i] === '?'){
-                counter1++
-            }
-            // another if 
-        }
+    // let arr = str.split('')
+    // let checkArr = arr.map(x => x * 1).filter(x => x)
+    //     console.log (checkArr)
+    // if (!checkArr[1]){
+    //     return 'false' 
+    // }else{
+    //     let counter1 = 0
+    //     let digit
+    //     let i
+    //     for ( i = 0; i < arr.length; counter1 === 2) {
+    //         if (arr[i] === '?'){
+    //             counter1++
+    //         }
+    //         // another if 
+    //     }
 
-    }
+    // }
+    const matches = str.match(/\d[\w\?]*?\d/g)
+    console.log(matches)
 }
 let testData: string = 'aa6??a?s3'
 let testData1: string = 'acc?7??sss?3rr1?????????5'
