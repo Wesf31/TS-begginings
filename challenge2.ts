@@ -3,7 +3,7 @@ function questionsMarks(str: string) : string {
     console.log(arr)
     let checkArr = arr.map(x => x * 1).filter(x => x)
         console.log (checkArr)
-    if (!checkArr[2]){
+    if (!checkArr[1]){
         return 'false'
     }else{
         let indexOne = []
