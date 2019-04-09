@@ -22,7 +22,7 @@ function translateToEnglish(str: string): string {
 
 var testString: string = `i miss japanese ramen`
 var testCode: string = '.. / -- .. ... ... / .--- .- .--. .- -. . ... . / .-. .- -- . -. -.-.--'
-var alphabet: object = {  
+const alphabet: object = {  
    "-----":"0",
    ".----":"1",
    "..---":"2",
@@ -106,3 +106,4 @@ var morse: object = {
     ".":"·-·-·-",
     ",":"--··--"
 };
+// in situations like the alphabet object would declaring it const be 

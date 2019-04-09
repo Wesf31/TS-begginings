@@ -4,14 +4,14 @@ function questionsMarks(str: string) : string {
     let checkArr = arr.map(x => x * 1).filter(x => x)
         console.log (checkArr)
     if (!checkArr[1]){
-        return 'false'
+        return 'false' 
     }else{
         let indexOne = []
         let indexTwo = []
         let counter = 0
         let i
         for ( i = 0; i < arr.length; counter === 2) {
-            if (arr[i] * 1 == Number){
+            if (typeof arr[i] === 'number'){
                 counter++
             }
         }
@@ -20,6 +20,8 @@ function questionsMarks(str: string) : string {
 }
 let testData: string = 'aa6??a?3'
 let testData1: string = 'acc?7??sss?3rr1?????????5'
+
+console.log('hell ya')
 
 console.log(questionsMarks(testData))
 // Have the function QuestionsMarks(str) take the str string parameter, which will contain single 
