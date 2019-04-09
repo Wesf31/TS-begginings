@@ -10,8 +10,8 @@ function questionsMarks(str: string) : string {
         let indexTwo = []
         let counter = 0
         let i
-        for ( i = 0; i < arr.length; counter === 3) {
-            if (arr[i] == '?'){
+        for ( i = 0; i < arr.length; counter === 2) {
+            if (arr[i] * 1 == Number){
                 counter++
             }
         }
@@ -27,3 +27,7 @@ console.log(questionsMarks(testData))
 // between every pair of two numbers that add up to 10. If so, then your program should return the 
 // string true, otherwise it should return the string false. If there aren't any two numbers that add up 
 // to 10 in the string, then your program should return string false as well.
+
+// 1) check and make sure there are two digits
+// 2) find the first two digits 
+// 3) 
