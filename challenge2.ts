@@ -1,12 +1,18 @@
 function questionsMarks(str: string) : string {
     let matches = str.match(/\d[\w\?]*?\d/g);
-    let results = 'false'
-    if (!matches) return results
+    let results = 'false';
+    if (!matches) return results;
     matches[0].match(/\?/g).length === 3
     
     for ( let i = 0; i < matches.length; i++) {
         if(matches[i].match(/\?/g).length === 3){
-            results = 'true'
+            let testString = matches.toString().split('')
+            if (Number(testString[0]) + Number(testString[testString.length - 1]) === 10){
+                results = 'true'
+            }
+            else{
+                results = 'false'
+            }
         }else {
             results = 'false'
         }
@@ -14,9 +20,9 @@ function questionsMarks(str: string) : string {
     return results
     console.log(matches)
 }
-let testData: string = 'aa6??a?s3'
-let testData1: string = 'acc?7??sss?3rr1?????????5'
-console.log(questionsMarks(testData))
+let testData: string = 'aa6??a?s4'
+let testData1: string = 'acc?7??sss?3rr1???9'
+console.log(questionsMarks(testData1))
 
 
 // notes from mentorship
