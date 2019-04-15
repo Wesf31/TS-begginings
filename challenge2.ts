@@ -6,12 +6,12 @@ function questionsMarks(str: string) : string {
     
     for ( let i = 0; i < matches.length; i++) {
         if(matches[i].match(/\?/g).length === 3){
-            return results = 'true'
+            results = 'true'
         }else {
-            return results = 'flase'
+            results = 'false'
         }
     }
-
+    return results
     console.log(matches)
 }
 let testData: string = 'aa6??a?s3'
