@@ -6,7 +6,7 @@ function questionsMarks(str: string) : string {
     
     for ( let i = 0; i < matches.length; i++) {
         if(matches[i].match(/\?/g).length === 3){
-            let testString = matches.toString().split('')
+            let testString = matches.toString().split('') /* this line is straight garbage */
             if (Number(testString[0]) + Number(testString[testString.length - 1]) === 10){
                 results = 'true'
             }
