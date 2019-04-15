@@ -1,5 +1,6 @@
 // Create a class that implements the above class. The implementation should make the code below produce
 // the requested output to the conosole. 
+// 
 
 interface Soldier {
     name: string;
