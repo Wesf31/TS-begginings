@@ -23,7 +23,7 @@ function questionsMarks(str: string) : string {
     }
     return results
 };
-let testData: string = 'aa6?a???s4';
+let testData: string = 'aa6?a??s4';
 let testData1: string = 'acc?7??sss?3rr7???3';
 console.log(questionsMarks(testData));
 
