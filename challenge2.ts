@@ -3,29 +3,20 @@ function questionsMarks(str: string) : string {
     let results = 'false';
     if (!matches) return results;
     console.log(matches)
-    for ( let match of matches)
-    for ( let i = 0; i < matches.length; i++) {
-        console.log(matches[i])
-        if(matches[i].match(/\?/).length === 3){
-            // filter instead of matches, filter to get only ? and then check for 3
-            //regex on 8 isn't working right
-            console.log(matches[i])
-            let testString = matches.toString().split('') /* this line is straight garbage */
-            if (Number(testString[0]) + Number(testString[testString.length - 1]) === 10){
+    for ( let match of matches) {
+        if (Number(match[0]) + Number(match[match.length - 1]) === 10) {
+            if (match.split('').filter(char => char === '?').length === 3) {
                 results = 'true';
-            }
-            else{
+            } else {
                 results = 'false';
             }
-        }else {
-            results = 'false';
         }
     }
     return results
 };
 let testData: string = 'aa6?a??s4';
-let testData1: string = 'acc?7??sss?3rr7???3';
-console.log(questionsMarks(testData));
+let testData1: string = 'acc?7??sss?3rr6???3';
+console.log(questionsMarks(testData1));
 
 
 // notes from mentorship
