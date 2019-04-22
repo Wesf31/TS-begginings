@@ -5,7 +5,6 @@ function questionsMarks(str: string) : string {
     console.log(matches)
     for ( let match of matches) {
         if (Number(match[0]) + Number(match[match.length - 1]) === 10) {
-            // count the numbers of ?'s in the substring between two numbers 
             if (match.split('').filter(char => char === '?').length === 3) {
                 results = 'true';
             } else {
