@@ -16,7 +16,7 @@ function questionsMarks(str: string) : string {
 };
 let testData: string = 'aa6?a??s4';
 let testData1: string = 'acc?7??sss?3rr6???3';
-console.log(questionsMarks(testData1));
+console.log(questionsMarks(testData));
 
 
 // notes from mentorship
