@@ -9,19 +9,22 @@ interface ISoldier {
     defend(city: string): void;
 }
 
-class Solider implements ISoldier {
+class Soldier implements ISoldier {
+    constructor(public name: string, public daysActive: 0) {}
 
-attack(enemy: Soldier): void  {
-console.log(`Attacking enemy soldier ${Solider.name} sir!`)
-}
-defend(city: string) : void {
-console.log(`Defending city of ${city}`)
-}
-// use console.logs in the attack and defends methods to show output
+    attack(enemy: Soldier): void  {
+        this.daysActive++
+        console.log(`Attacking enemy soldier ${enemy.name} sir!`)
+    };
+    defend(city: string) : void {
+        this.daysActive++
+        console.log(`Defending city of ${city}`)
+    };
+
 }
 
-const friendylySoldier = new Soldier ("Mark");
-const enemySoldier = new enemySoldier("Jeff")
+const friendylySoldier = new Soldier ("Mark", 0);
+const enemySoldier = new Soldier("Jeff", 0)
 
 friendylySoldier.attack(enemySoldier);
 friendylySoldier.defend("Berlin")
