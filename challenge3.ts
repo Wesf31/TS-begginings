@@ -10,6 +10,7 @@ interface ISoldier {
 }
 
 class Solider implements ISoldier {
+    
 // attack(enemy:)
 // use console.logs in the attack and defends methods to show output
 }
