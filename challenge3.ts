@@ -10,8 +10,13 @@ interface ISoldier {
 }
 
 class Solider implements ISoldier {
-    
-// attack(enemy:)
+
+attack(enemy: Soldier): void  {
+console.log(`Attacking enemy soldier ${Solider.name} sir!`)
+}
+defend(city: string) : void {
+console.log(`Defending city of ${city}`)
+}
 // use console.logs in the attack and defends methods to show output
 }
 
