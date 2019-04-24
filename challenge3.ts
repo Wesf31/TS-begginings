@@ -10,21 +10,28 @@ interface ISoldier {
 }
 
 class Soldier implements ISoldier {
-    constructor(public name: string, public daysActive: 0) {}
-
+    constructor(public name: string, public daysActive: 0) {};
+// when i switch the 0 in the arg
+// because I am setting the initial value inside the constructor and a value gets created
     attack(enemy: Soldier): void  {
-        this.daysActive++
-        console.log(`Attacking enemy soldier ${enemy.name} sir!`)
+        this.daysActive++;
+        console.log(`Attacking enemy soldier ${enemy.name} sir!`);
     };
     defend(city: string) : void {
-        this.daysActive++
-        console.log(`Defending city of ${city}`)
+        this.daysActive++;
+        console.log(`Defending city of ${city}`);
     };
 
 }
 
 const friendylySoldier = new Soldier ("Mark", 0);
-const enemySoldier = new Soldier("Jeff", 0)
+// const friendylySoldier = new Soldier ("Mark");
+
+// On the code challenge instructions you didn't have the 0 initially, is there way to do it without it throwing you that warning?
+// Can I just give the constructor a 0 initially 
+const enemySoldier = new Soldier("Jeff", 0);
+// const enemySoldier = new Soldier("Jeff")
+
 
 friendylySoldier.attack(enemySoldier);
 friendylySoldier.defend("Berlin")
