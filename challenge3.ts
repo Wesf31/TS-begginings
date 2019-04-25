@@ -11,6 +11,7 @@ interface ISoldier {
 
 class Soldier implements ISoldier {
     constructor(public name: string, public daysActive: number) {};
+// isn;t
     attack(enemy: Soldier): void  {
         this.daysActive++;
         console.log(`Attacking enemy soldier ${enemy.name} sir!`);
@@ -26,7 +27,7 @@ const friendylySoldier = new Soldier ("Mark", 0);
 // const friendylySoldier = new Soldier ("Mark");
 
 // On the code challenge instructions you didn't have the 0 initially, is there way to do it without the 0 and still have it not throwing you that warning?
-// Can I just give the constructor a 0 initially 
+
 const enemySoldier = new Soldier("Jeff", 0);
 // const enemySoldier = new Soldier("Jeff")
 
