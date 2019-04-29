@@ -3,7 +3,7 @@ function questionsMarks(str: string) : string {
     let results = 'false';
     if (!matches) return results;
     console.log(matches)
-    for ( let match of matches) {
+    for (let match of matches) {
         if (Number(match[0]) + Number(match[match.length - 1]) === 10) {
             if (match.split('').filter(char => char === '?').length === 3) {
                 results = 'true';
