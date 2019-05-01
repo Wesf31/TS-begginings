@@ -14,6 +14,7 @@ class Soldier implements ISoldier {
     // keep constructor params to minimum 
     attack(enemy: Soldier): void  {
         this.daysActive++;
+        enemy.daysActive++;
         console.log(`Attacking enemy soldier ${enemy.name} sir!`);
         // change methods to reflect the daysactive for the enemy soldier
         // *hint Ask Don't 
