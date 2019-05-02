@@ -3,6 +3,23 @@ interface ISoldier {
     daysActive?: number;
     attack(enemy: Soldier): void;
     defend(city: string): void;
+    move(city: string): void;
+}
+
+interface IMedic {
+    name: string;
+    daysActive: number;
+    heal(soldier: ISoldier): void;
+    move(city: string): void;
+}
+
+interface ITank {
+    callSign: string;
+    daysActive: number;
+    crewNumber: number;
+    attack(enemy: ITank): void;
+    defend(city: string): void;
+    move(city: string): void;
 }
 
 class Soldier1 implements ISoldier {
@@ -16,6 +33,16 @@ class Soldier1 implements ISoldier {
     defend(city: string) : void {
         this.daysActive++;
         console.log(`Defending city of ${city}`);
+    }
+}
+
+abstract class Submarine {
+    callSign: string;
+    daysActive: number;
+    crewNumber: number;
+    abstract move(city: string): void;
+    dive(depth: number): void {
+      console.log(`Dive Dive Dive! Depth ${depth}`)
     }
 }
 
