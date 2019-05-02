@@ -1,4 +1,4 @@
-interface ISoldier {
+interface ISoldier1 {
     name: string;
     daysActive?: number;
     attack(enemy: Soldier): void;
@@ -22,7 +22,7 @@ interface ITank {
     move(city: string): void;
 }
 
-class Soldier1 implements ISoldier {
+class Soldier1 implements ISoldier1 {
     public daysActive = 0;
     constructor(public name: string) {};
     attack(enemy: Soldier): void  {
