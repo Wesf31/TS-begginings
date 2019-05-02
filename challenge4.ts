@@ -34,6 +34,9 @@ class Soldier1 implements ISoldier1 {
         this.daysActive++;
         console.log(`Defending city of ${city}`);
     }
+    move(city: string) : void {
+        console.log(`Move to this city of ${city}`)
+    }
 }
 
 abstract class Submarine {
