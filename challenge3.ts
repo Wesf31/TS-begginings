@@ -25,19 +25,16 @@ class Soldier implements ISoldier {
     }
 }
 
-// const friendylySoldier = new Soldier ("Mark", 0);
 const friendylySoldier = new Soldier ("Mark");
-// On the code challenge instructions you didn't have the 0 initially, is there way to do it without the 0 and still have it not throwing you that warning?
+
 // default parameter must be at the very end of the arg
 const enemySoldier = new Soldier("Jeff");
-// const enemySoldier = new Soldier("Jeff")
 
 friendylySoldier.attack(enemySoldier);
 friendylySoldier.defend("Berlin")
 
 console.log(friendylySoldier.daysActive)
 console.log(enemySoldier.daysActive)
-// enemySoldier is being attack so it should increment the daysActive of the enemy solider.
 
 //console output
 //Attacking enemy soldier Jeff sir!
