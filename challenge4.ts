@@ -9,7 +9,7 @@ interface ISoldier1 {
 interface IMedic {
     name: string;
     daysActive: number;
-    heal(soldier: ISoldier): void;
+    heal(soldier: ISoldier1): void;
     move(city: string): void;
 }
 
@@ -33,6 +33,10 @@ class Soldier1 implements ISoldier1 {
     defend(city: string) : void {
         this.daysActive++;
         console.log(`Defending city of ${city}`);
+    }
+    move(city: string) : void {
+        this.daysActive++;
+        console.log(`Moving to city of ${city}`);
     }
 }
 
