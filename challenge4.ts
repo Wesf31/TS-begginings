@@ -80,7 +80,7 @@ class Medic extends Soldier implements IMedic {
 
 class SubmarineConcrete extends Submarine {
     constructor(public callSign: string) {
-        super ()
+        super ();
     }
     move(city: string) : void {
         this.daysActive++;
