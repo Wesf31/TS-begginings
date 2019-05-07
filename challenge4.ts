@@ -77,13 +77,14 @@ class Medic extends Soldier implements IMedic {
         console.log(`Healing solider ${soldier.name}`);
     }
 }
+
 class SubmarineConcrete extends Submarine {
     constructor(public callSign: string) {
         super ()
     }
-    move(depth: string): void{
+    move(city: string) : void {
         this.daysActive++;
-        console.log(`Dive Dive Dive! Depth ${depth}`);
+        console.log(`Moving to city of ${city}`);
     }
 }
 
