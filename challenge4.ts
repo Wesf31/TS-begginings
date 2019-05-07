@@ -1,7 +1,7 @@
 interface ISoldier {
     name: string;
     daysActive?: number;
-    attack(enemy: Soldier1): void;
+    attack(enemy: ISoldier): void;
     defend(city: string): void;
     move(city: string): void;
 }
