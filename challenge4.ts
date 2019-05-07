@@ -49,6 +49,7 @@ class Soldier implements ISoldier {
 
 class Medic extends Soldier implements IMedic {
     heal(soldier: ISoldier) : void {
+        soldier.daysActive++;
         this.daysActive++;
         console.log(`Healing solider ${soldier.name}`);
     }
