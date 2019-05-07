@@ -42,12 +42,8 @@ class Soldier1 implements ISoldier1 {
         console.log(`Defending city of ${city}`);
     }
     move(city: string) : void {
-<<<<<<< HEAD
-        console.log(`Move to this city of ${city}`)
-=======
         this.daysActive++;
         console.log(`Moving to city of ${city}`);
->>>>>>> 7c4e8931a624946a2ceae7761c817e4383aa801f
     }
 }
 
