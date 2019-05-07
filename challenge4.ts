@@ -47,14 +47,16 @@ class Soldier1 implements ISoldier1 {
     }
 }
 
-class Medic extends Soldier1 {
+class Medic extends Soldier1 implements IMedic {
     heal(soldier: ISoldier1) : void {
         this.daysActive++;
         console.log(`Healing solider ${soldier.name}`);
     }
 }
 class Tank extends Submarine implements ITank {
-    constructor(public callSign: string) {};
+    constructor(public callSign: string) {
+        super ();
+    }
     
 }
 
