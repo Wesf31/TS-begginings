@@ -53,11 +53,45 @@ class Medic extends Soldier1 implements IMedic {
         console.log(`Healing solider ${soldier.name}`);
     }
 }
-class Tank extends Submarine implements ITank {
+class Submarine1 extends Submarine implements ITank {
     constructor(public callSign: string) {
         super ();
     }
+    move(city: string): void{
+        this.daysActive++;
+        console.log(`Moving to city of ${city}`);
+    }
+    attack(enemy: Submarine1): void  {
+        this.daysActive++;
+        enemy.daysActive++;
+        console.log(`Attacking enemy Sub ${this.callSign} sir!`);
+    }
+    defend(city: string) : void {
+        this.daysActive++;
+        console.log(`Defending city of ${city}`);
+    }
     
+}
+
+class Tank implements ITank  {
+    constructor ( public callSign: string, public crewNumber: number) {
+    }
+    // I image if you would ever going to create an instance of a submarine you would need those two args
+    public daysActive = 0
+    attack(enemy: ITank): void  {
+        this.daysActive++;
+        enemy.daysActive++;
+        console.log(`Attacking enemy tank ${enemy.callSign} sir!`);
+    }
+    defend(city: string) : void {
+        this.daysActive++;
+        console.log(`Defending city of ${city}`);
+    }
+    move(city: string): void{
+        this.daysActive++;
+        console.log(`Moving to city of ${city}`);
+    }
+
 }
 
 const friendylySoldier1 = new Soldier1 ("Mark");
