@@ -50,12 +50,12 @@ abstract class Submarine {
     }
 }
 
-const friendylySoldier1 = new Soldier ("Mark");
+const friendylySoldier1 = new Soldier1 ("Mark");
 
-const enemySoldier1 = new Soldier("Jeff");
+const enemySoldier1 = new Soldier1("Jeff");
 
-friendylySoldier.attack(enemySoldier);
-friendylySoldier.defend("Berlin")
+friendylySoldier1.attack(enemySoldier1);
+friendylySoldier1.defend("Berlin")
 
-console.log(friendylySoldier.daysActive)
-console.log(enemySoldier.daysActive)
+console.log(friendylySoldier1.daysActive)
+console.log(enemySoldier1.daysActive)
