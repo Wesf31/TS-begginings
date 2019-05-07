@@ -1,18 +1,18 @@
 // Create a class that implements the above class. The implementation should make the code below produce
 // the requested output to the conosole. 
 
-interface ISoldier {
+interface ISoldier1 {
     name: string;
     daysActive?: number;
-    attack(enemy: Soldier): void;
+    attack(enemy: Soldier1): void;
     defend(city: string): void;
 }
 
-class Soldier implements ISoldier {
+class Soldier1 implements ISoldier1 {
     public daysActive = 0;
     constructor(public name: string) {};
     // keep constructor params to minimum 
-    attack(enemy: Soldier): void  {
+    attack(enemy: Soldier1): void  {
         this.daysActive++;
         enemy.daysActive++;
         console.log(`Attacking enemy soldier ${enemy.name} sir!`);
@@ -24,16 +24,16 @@ class Soldier implements ISoldier {
     }
 }
 
-const friendylySoldier = new Soldier ("Mark");
+const friendylySoldier1 = new Soldier1 ("Mark");
 
 // default parameter must be at the very end of the arg
-const enemySoldier = new Soldier("Jeff");
+const enemySoldier1 = new Soldier1("Jeff");
 
-friendylySoldier.attack(enemySoldier);
-friendylySoldier.defend("Berlin")
+friendylySoldier1.attack(enemySoldier1);
+friendylySoldier1.defend("Berlin")
 
-console.log(friendylySoldier.daysActive)
-console.log(enemySoldier.daysActive)
+console.log(friendylySoldier1.daysActive)
+console.log(enemySoldier1.daysActive)
 
 //console output
 //Attacking enemy soldier Jeff sir!

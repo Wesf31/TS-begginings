@@ -1,4 +1,4 @@
-interface ISoldier1 {
+interface ISoldier {
     name: string;
     daysActive?: number;
     attack(enemy: Soldier1): void;
@@ -6,8 +6,8 @@ interface ISoldier1 {
     move(city: string): void;
 }
 
-interface IMedic extends ISoldier1 {
-    heal(soldier: ISoldier1): void;
+interface IMedic extends ISoldier {
+    heal(soldier: ISoldier): void;
 }
 
 interface ITank {
@@ -29,10 +29,10 @@ abstract class Submarine {
     }
 }
 
-class Soldier1 implements ISoldier1 {
+class Soldier implements ISoldier {
     public daysActive = 0;
     constructor(public name: string) {};
-    attack(enemy: Soldier1): void  {
+    attack(enemy: Soldier): void  {
         this.daysActive++;
         enemy.daysActive++;
         console.log(`Attacking enemy soldier ${enemy.name} sir!`);
@@ -47,13 +47,13 @@ class Soldier1 implements ISoldier1 {
     }
 }
 
-class Medic extends Soldier1 implements IMedic {
-    heal(soldier: ISoldier1) : void {
+class Medic extends Soldier implements IMedic {
+    heal(soldier: ISoldier) : void {
         this.daysActive++;
         console.log(`Healing solider ${soldier.name}`);
     }
 }
-class Submarine1 extends Submarine {
+class SubmarineConcrete extends Submarine {
     constructor(public callSign: string) {
         super ();
     }
@@ -84,12 +84,12 @@ class Tank implements ITank  {
 
 }
 
-const friendylySoldier1 = new Soldier1 ("Mark");
+const friendylySoldier = new Soldier ("Mark");
 
-const enemySoldier1 = new Soldier1("Jeff");
+const enemySoldier = new Soldier("Jeff");
 
-friendylySoldier1.attack(enemySoldier1);
-friendylySoldier1.defend("Berlin")
+friendylySoldier.attack(enemySoldier);
+friendylySoldier.defend("Berlin")
 
-console.log(friendylySoldier1.daysActive)
-console.log(enemySoldier1.daysActive)
+console.log(friendylySoldier.daysActive)
+console.log(enemySoldier.daysActive)
