@@ -19,7 +19,6 @@ function translateToEnglish(str: string): string {
     });
    return messageConverted.join('')
 }
-
 var testString: string = `i miss japanese ramen`
 var testCode: string = '.. / -- .. ... ... / .--- .- .--. .- -. . ... . / .-. .- -- . -. -.-.--'
 const alphabet: object = {  

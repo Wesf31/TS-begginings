@@ -30,36 +30,10 @@ abstract class Submarine {
 }
 
 //Because I am using the attack, defend, move methods in more than 1 class I thought I would make an abstract class
-// with just those actions, see below, and just use inheretience with on the concreate classes but the differecne between the
-// ITank interface and the ISolider interface made me decide not to. I feel like that line of logic was wrong, where is it wrong?
+// with just those actions, see below, and just use inheretience with on the concreate classes 
 
-
-// abstract class Action {
-//     public daysActive = 0;
-//     attack(enemy: Soldier): void  {
-//         this.daysActive++;
-//         enemy.daysActive++;
-//         console.log(`Attacking enemy soldier ${enemy.name} sir!`);
-//     }
-//     defend(city: string) : void {
-//         this.daysActive++;
-//         console.log(`Defending city of ${city}`);
-//     }
-//     move(city: string) : void {
-//         this.daysActive++;
-//         console.log(`Moving to city of ${city}`);
-//     }
-// }
-
-class Soldier implements ISoldier {
+abstract class Action {
     public daysActive = 0;
-    constructor(public name: string) {
-    }
-    attack(enemy: Soldier): void  {
-        this.daysActive++;
-        enemy.daysActive++;
-        console.log(`Attacking enemy soldier ${enemy.name} sir!`);
-    }
     defend(city: string) : void {
         this.daysActive++;
         console.log(`Defending city of ${city}`);
@@ -67,6 +41,17 @@ class Soldier implements ISoldier {
     move(city: string) : void {
         this.daysActive++;
         console.log(`Moving to city of ${city}`);
+    }
+}
+
+class Soldier extends Action implements ISoldier {
+    constructor(public name: string) {
+        super();
+    }
+    attack(enemy: ISoldier): void  {
+        this.daysActive++;
+        enemy.daysActive++;
+        console.log(`Attacking enemy soldier ${enemy.name} sir!`);
     }
 }
 
@@ -78,7 +63,7 @@ class Medic extends Soldier implements IMedic {
     }
 }
 
-class SubmarineConcrete extends Submarine {
+class SubmarineConcreate extends Submarine {
     constructor(public callSign: string) {
         super ();
     }
@@ -88,22 +73,15 @@ class SubmarineConcrete extends Submarine {
     }
 }
 
-class Tank  implements ITank  {
-    constructor ( public callSign: string) {}
+class Tank extends Action implements ITank  {
+    constructor ( public callSign: string) {
+        super();
+    }
     public crewNumber: number;
-    public daysActive = 0;
     attack(enemy: ITank): void  {
         this.daysActive++;
         enemy.daysActive++;
         console.log(`Attacking enemy tank ${enemy.callSign} sir!`);
-    }
-    defend(city: string) : void {
-        this.daysActive++;
-        console.log(`Defending city of ${city}`);
-    }
-    move(city: string): void{
-        this.daysActive++;
-        console.log(`Moving to city of ${city}`);
     }
 }
 
