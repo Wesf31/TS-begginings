@@ -17,7 +17,6 @@ class Soldier implements ISoldier {
         enemy.daysActive++;
         console.log(`Attacking enemy soldier ${enemy.name} sir!`);
         // change methods to reflect the daysactive for the enemy soldier
-        // *hint Ask Don't 
     }
     defend(city: string) : void {
         this.daysActive++;
