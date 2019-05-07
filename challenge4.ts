@@ -74,9 +74,9 @@ class Submarine1 extends Submarine implements ITank {
 }
 
 class Tank implements ITank  {
-    constructor ( public callSign: string, public crewNumber: number) {
+    constructor ( public callSign: string) {
     }
-    // I image if you would ever going to create an instance of a submarine you would need those two args
+    public crewNumber: number
     public daysActive = 0
     attack(enemy: ITank): void  {
         this.daysActive++;
