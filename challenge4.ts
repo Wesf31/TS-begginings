@@ -53,24 +53,14 @@ class Medic extends Soldier1 implements IMedic {
         console.log(`Healing solider ${soldier.name}`);
     }
 }
-class Submarine1 extends Submarine implements ITank {
+class Submarine1 extends Submarine {
     constructor(public callSign: string) {
         super ();
     }
-    move(city: string): void{
+    move(depth: string): void{
         this.daysActive++;
-        console.log(`Moving to city of ${city}`);
+        console.log(`Dive Dive Dive! Depth ${depth}`);
     }
-    attack(enemy: Submarine1): void  {
-        this.daysActive++;
-        enemy.daysActive++;
-        console.log(`Attacking enemy Sub ${this.callSign} sir!`);
-    }
-    defend(city: string) : void {
-        this.daysActive++;
-        console.log(`Defending city of ${city}`);
-    }
-    
 }
 
 class Tank implements ITank  {
