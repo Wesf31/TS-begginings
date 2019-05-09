@@ -6,9 +6,12 @@ interface ISoldier {
     move(city: string): void;
 }
 
+//take common func out into its own interface that Soldier and IMedic both us and then extend ISoldier
+
 interface IMedic extends ISoldier {
     heal(soldier: ISoldier): void;
 }
+// extract the attack method out of both interfaces and make them generic
 
 interface ITank {
     callSign: string;
@@ -51,6 +54,7 @@ class Soldier extends Action implements ISoldier {
     attack(enemy: ISoldier): void  {
         this.daysActive++;
         enemy.daysActive++;
+        // still telling not asking as far as incrementing the days active, exposed method on the enemy and friendly soldier that ask to increment their daysActive
         console.log(`Attacking enemy soldier ${enemy.name} sir!`);
     }
 }
@@ -71,6 +75,7 @@ class SubmarineConcreate extends Submarine {
         this.daysActive++;
         console.log(`Moving to city of ${city}`);
     }
+    //def need to use move method across all the different concreate classes
 }
 
 class Tank extends Action implements ITank  {
