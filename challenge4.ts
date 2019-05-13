@@ -1,3 +1,11 @@
+interface IUnit {
+    name: string;
+    daysActive?: number;
+    attack(enemy: ISoldier): void;
+    defend(city: string): void;
+    move(city: string): void;
+}
+
 interface ISoldier {
     name: string;
     daysActive?: number;
