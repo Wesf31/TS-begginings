@@ -2,32 +2,24 @@ interface IUnit {
     name: string;
     daysActive: number;
     move(city: string): void;
-    activityCounter(daysActive: string): void
-    // move these into the action abstract class
+    // activityCounter(daysActive: string): void
 }
 
 abstract class Commands {
-    attack<T>(enemy: T ): void {}
+    activityCounter(enemy: IUnit, friendylySoldier: IUnit): void {
+        enemy.daysActive++, friendylySoldier.daysActive++
+    }
+    attack<T extends IUnit >(enemy: T ): void {
+        console.log(`Attacking enemy unit ${enemy.name} sir!` )
+    }
     defend(city: string) : void {
-        // this.daysActive++;
+        
         console.log(`Defending city of ${city}`);
     }
-    move(city: string) : void {
-        // this.daysActive++;
-        console.log(`Moving to city of ${city}`);
-    }
 }
 
-interface ISoldier extends IUnit, Commands {
-    attack(enemy: ISoldier): void;
-    defend(city: string): void;
-
-}
-
-//take common func out into its own interface that Soldier and IMedic both us and then extend ISoldier
-
-interface IMedic extends ISoldier {
-    heal(soldier: ISoldier): void;
+interface IMedic extends IUnit {
+    heal(soldier: IUnit): void;
     //has name daysactive and move
 }
 // extract the attack method out of both interfaces and make them generic
@@ -85,15 +77,15 @@ class SubmarineConcreate extends Submarine {
     //def need to use move method across all the different concreate classes
 }
 
-class Tank extends Action implements ITank  {
+class Tank extends Commands implements ITank  {
     constructor ( public callSign: string) {
         super();
     }
     public crewNumber: number;
     attack(enemy: ITank): void  {
-        this.daysActive++;
+
         enemy.daysActive++;
-        console.log(`Attacking enemy tank ${enemy.callSign} sir!`);
+        console.log(`Attacking enemy ${enemy.callSign} sir!`);
     }
 }
 
