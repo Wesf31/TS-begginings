@@ -1,32 +1,30 @@
 interface IUnit {
-    name?: string;
-    daysActive: number;
     move(city: string): void;
+    // the thought here was to pull out the common properties of IMedic and ISolider So I could use this common Interface for both
 }
-
-// abstract class Commands {
-//     public activityCounter(unit: IUnit): void {
-//         unit.daysActive++
-//         }
-//     abstract attack<T extends IUnit >(enemy: T ): void;
-//     abstract defend(city: string) : void;
-//     abstract move(city: string) : void;
-// }
-
- class Commands {
+//
+interface IHuman extends IUnit{
+    name:string;
+}
+abstract class Commands {
     public activityCounter(unit: IUnit): void {
         unit.daysActive++
-        //If i do this than I can ask a unit to increment itself where needed
+        //In the exposed
     }
-    attack<T extends IUnit >(enemy: T ): void {
-        this.activityCounter(enemy)
+    abstract attack<T extends IUnit >(enemy: T ): void;
+    abstract defend(city: string) : void;
+}
+
+ abstract class MoveAbleUnit <T extends IUnit > implements IUnit  {
+    private daysActive: number = 0;
+    attack(enemy: T ): void {
+
         console.log(`Attacking enemy unit ${enemy.name} sir!` )
     }
     defend(city: string) : void {       
         console.log(`Defending city of ${city}`);
     }
     move(city: string) : void {
-        this.activityCounter(enemySoldier,)
         console.log(`Moving to city of ${city}`);
     }
 }
@@ -36,7 +34,6 @@ interface IMedic extends IUnit {
 }
 
 interface ITank extends IUnit, Commands {
-    callSign: string;
     crewNumber: number;
 }
 
@@ -49,38 +46,23 @@ abstract class Submarine {
       console.log(`Dive Dive Dive! Depth ${depth}`);
     }
 }
-
-class Soldier extends Commands implements IUnit{
+// Just get write out all the implementation of all the concreate classes that I need and progressively pull them up one up. I will have a heirarchy of at least 3 levels
+class Soldier {
     constructor(public name: string) {
         super()
     }
-    daysActive : 0;
-    attack<T extends IUnit >(enemy: T ): void {
-        //so if I am understanding generiacs right this should allow me to
-        this.activityCounter(enemy)
-        this.daysActive++
-        console.log(`Attacking enemy unit ${enemy.name} sir!` )
-    }
-    defend(city: string) : void {
-        this.daysActive++       
-        console.log(`Defending city of ${city}`);
-    }
-    move(city: string) : void {
-        this.daysActive++
-        console.log(`Moving to city of ${city}`);
-    }
 }
-
+//
 class Tank extends Commands implements ITank  {
     constructor ( public callSign: string) {
         super();
     }
     daysActive: 0;
     crewNumber: number;
-    attack<T extends ITank >(enemy: T ): void {
+    attack<T extends IUnit >(enemy: T ): void {
         this.activityCounter(enemy)
         this.daysActive++
-        console.log(`Attacking enemy unit ${enemy.name} sir!` )
+        console.log(`Attacking enemy unit ${enemy.callSign} sir!` )
     }
 }
 
