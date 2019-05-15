@@ -66,7 +66,7 @@ class Tank extends Commands implements ITank  {
     }
 }
 
-class Medic implements IMedic {
+class Medic  {
     constructor(public name: string) {
     }
     daysActive : number;
@@ -85,11 +85,17 @@ class SubmarineConcreate extends Submarine {
     constructor(public callSign: string) {
         super ();
     }
-    move(city: string) : void {
-        this.daysActive++;
+
+    crewNumber: number = 0;
+
+    daysActive: number = 0;
+    
+    move(city: string): void {
         console.log(`Moving to city of ${city}`);
     }
-    //def need to use move method across all the different concreate classes
+    dive(depth: number): void {
+        console.log(`Dive Dive Dive! Depth ${depth}`)
+    }
 }
 
 
