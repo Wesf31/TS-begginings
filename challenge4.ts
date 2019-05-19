@@ -1,10 +1,10 @@
 interface IUnit {
-    move(city: string): void;
+
     // the thought here was to pull out the common properties of IMedic and ISolider So I could use this common Interface for both
 }
 //
 interface IHuman extends IUnit{
-    name:string;
+
 }
 abstract class Commands {
     public activityCounter(unit: IUnit): void {
