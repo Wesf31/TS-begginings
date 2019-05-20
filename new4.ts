@@ -3,8 +3,8 @@ interface IBase{
     move(city: string): void;
 }
 
-interface IMoveable{
-    attack(enemy: ITank): void;
+interface IMoveable <T>{
+    attack(enemy: T): void;
     defend(city: string): void;
 }
 
@@ -30,10 +30,19 @@ interface ISubmarine extends IOne, IMachine{
 }
 
 abstract class One {
-    constructor (public daysActive: number){
+    constructor (public daysActive: 0){
     }
     move(city: string) : void {
-        this.daysActive++
+        this.daysActive++;
         console.log(`Moving to city of ${city}`);
+    }
+}
+
+abstract class MoveAbleUnit <T> {
+    attack(enemy: T ): void {
+        console.log(`Attacking enemy unit ${enemy.name} sir!` )
+    }
+    defend(city: string) : void {       
+        console.log(`Defending city of ${city}`);
     }
 }

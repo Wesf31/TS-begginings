@@ -16,19 +16,19 @@ abstract class Commands {
     abstract defend(city: string) : void;
 }
 
- abstract class MoveAbleUnit <T extends IUnit > implements IUnit  {
-    private daysActive: number = 0;
-    attack(enemy: T ): void {
+//  abstract class MoveAbleUnit <T extends IUnit > implements IUnit  {
+//     private daysActive: number = 0;
+//     attack(enemy: T ): void {
 
-        console.log(`Attacking enemy unit ${enemy.name} sir!` )
-    }
-    defend(city: string) : void {       
-        console.log(`Defending city of ${city}`);
-    }
-    move(city: string) : void {
-        console.log(`Moving to city of ${city}`);
-    }
-}
+//         console.log(`Attacking enemy unit ${enemy.name} sir!` )
+//     }
+//     defend(city: string) : void {       
+//         console.log(`Defending city of ${city}`);
+//     }
+//     move(city: string) : void {
+//         console.log(`Moving to city of ${city}`);
+//     }
+// }
 
 interface IMedic extends IUnit {
     heal(soldier: IUnit): void;
@@ -72,7 +72,6 @@ class Medic  {
     }
     daysActive : number;
     heal(soldier: IUnit) : void {
-
         this.daysActive++
         console.log(`Healing solider ${soldier.name}`);
     }
