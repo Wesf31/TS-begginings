@@ -17,9 +17,10 @@ interface IFour{
     name:string;
 }
 
-interface ISolider extends IOne, ITwo, IFour{
-}
+interface ISolider extends IOne, ITwo, IFour{}
 
 interface IMedic extends IOne, ITwo, IFour{
     heal(solider: ISolider): void;
 }
+
+interface ITank extends IOne, ITwo, IThree {}
