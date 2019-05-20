@@ -10,7 +10,7 @@ interface IHuman extends IUnit{
 abstract class Commands {
     public activityCounter(unit: IUnit): void {
         unit.daysActive++
-        //In the exposed
+        //In the exposed method the this will be used 
     }
     abstract attack<T extends IUnit >(enemy: T ): void;
     abstract defend(city: string) : void;

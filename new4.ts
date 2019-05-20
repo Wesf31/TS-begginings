@@ -1,26 +1,35 @@
-interface IOne{
+interface I{
     daysActive: number;
     move(city: string): void;
 }
 
-interface ITwo{
+interface IMoveable{
     attack(enemy: ITank): void;
     defend(city: string): void;
 }
 
-interface IThree{
+interface IMachine{
     callSign: string;
     crewNumber: number;
 }
 
-interface IFour{
+interface IName{
     name:string;
 }
 
-interface ISolider extends IOne, ITwo, IFour{}
-
-interface IMedic extends IOne, ITwo, IFour{
+interface ISolider extends IOne, IMoveable, IName{}
+interface ITank extends IOne, IMoveable, IMachine {}
+//So with all these different interfaces and what not I can piece together units
+//Is this two much inheritance? 
+interface IMedic extends IOne, IMoveable, IName{
     heal(solider: ISolider): void;
 }
 
-interface ITank extends IOne, ITwo, IThree {}
+interface ISubmarine extends IOne, IMachine{
+    dive(depth: number) : void;
+}
+
+abstract class Solider {
+
+    constructor(public name: string){};
+}
