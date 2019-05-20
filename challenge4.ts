@@ -1,4 +1,5 @@
-interface IUnit {
+interface IOne {
+    daysActive: number
 
     // the thought here was to pull out the common properties of IMedic and ISolider So I could use this common Interface for both
 }
