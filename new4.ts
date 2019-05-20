@@ -1,4 +1,4 @@
-interface I{
+interface IBase{
     daysActive: number;
     move(city: string): void;
 }
@@ -29,7 +29,11 @@ interface ISubmarine extends IOne, IMachine{
     dive(depth: number) : void;
 }
 
-abstract class Solider {
-
-    constructor(public name: string){};
+abstract class One {
+    constructor (public daysActive: number){
+    }
+    move(city: string) : void {
+        this.daysActive++
+        console.log(`Moving to city of ${city}`);
+    }
 }
