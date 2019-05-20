@@ -16,3 +16,10 @@ interface IThree{
 interface IFour{
     name:string;
 }
+
+interface ISolider extends IOne, ITwo, IFour{
+}
+
+interface IMedic extends IOne, ITwo, IFour{
+    heal(solider: ISolider): void;
+}
