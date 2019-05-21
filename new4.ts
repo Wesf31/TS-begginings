@@ -44,14 +44,14 @@ abstract class Base implements IOne {
 }
 
 abstract class MoveAbleUnit extends Base implements IMoveable <U>  {
-    // still need a little coaching on these generics 
-    attack(enemy: U): void {
+    // still need a little coaching on these generics
+        attack(enemy: U): void {
         this.dayIncrementer();
         enemy.dayIncrementer();
         // this is still asking enemy to increment not telling the sum bitch
         console.log(`Attacking enemy unit ${enemy.name} sir!` )
     }
-    defend(city: string): void {
+        defend(city: string): void {
         this.dayIncrementer();
         console.log(`Defending city of ${city}`);
     }
@@ -77,6 +77,12 @@ class Medic extends Base implements IMedic {
     heal(soldier: ISolider) : void {
         this.dayIncrementer()
         console.log(`Healing solider ${soldier.name}`);
+    }
+}
+
+class Submarine extends Tank implements ISubmarine{
+    dive(depth: number): void {
+        console.log(`Dive Dive Dive! ${depth}`)
     }
 }
 

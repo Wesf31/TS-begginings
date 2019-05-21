@@ -30,7 +30,7 @@ abstract class Commands {
 //     }
 // }
 
-interface IMedic extends IUnit {
+interface IMedic1 extends IUnit {
     heal(soldier: IUnit): void;
 }
 
@@ -38,7 +38,7 @@ interface ITank1 extends IUnit, Commands {
     crewNumber: number;
 }
 
-abstract class Submarine {
+abstract class Submarine1 {
     callSign: string;
     daysActive: number;
     crewNumber: number;
