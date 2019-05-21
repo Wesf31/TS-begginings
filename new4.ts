@@ -29,25 +29,25 @@ interface ISubmarine extends IOne, IMachine{
     dive(depth: number) : void;
 }
 
-abstract class Base implements IOne {
+abstract class Base {
     daysActive: number = 0;
     move(city: string): void {
         console.log(`Moving to city of ${city}`);
     }
-    public incrementer ( daysActive: number): void {
+    public incrementer (): void {
         this.daysActive++;
     }
 }
 
 abstract class MoveAbleUnit extends Base implements IMoveable <U>  {
     attack(enemy): void {
-        this.daysActive++;
+        this.incrementer()
         enemy.incrementer()
         // this is still asking enemy to increment not telling the sum bitch
         console.log(`Attacking enemy unit ${enemy.name} sir!` )
     }
     defend(city: string) : void {
-        this.daysActive++;
+        this.incrementer()
         console.log(`Defending city of ${city}`);
     }
 }
