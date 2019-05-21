@@ -1,7 +1,6 @@
 interface IOne{
     daysActive: number;
     move(city: string): void;
-    dayIncrementer(daysActive: number): void;
 }
 
 interface IMoveable <T>{
@@ -18,7 +17,7 @@ interface IName{
     name:string;
 }
 
-interface ISolider extends IOne, IMoveable <ISolider>, IName{}
+interface ISolider extends IOne, IMoveable <ISolider>, IName {}
 interface ITank extends IOne, IMoveable <ITank>, IMachine {}
 //So with all these different interfaces and what not I can piece together units
 //Is this too much inheritance? 
@@ -30,39 +29,62 @@ interface ISubmarine extends IOne, IMachine{
     dive(depth: number) : void;
 }
 
-abstract class Base {
+abstract class Base implements IMoveable <L> {
     daysActive: number = 0;
+    health: number = 100;
+    damage: number = 5;
     move(city: string): void {
         console.log(`Moving to city of ${city}`);
     }
-    dayIncrementer (): void {
-        this.daysActive++;
-    }
-}
-
-abstract class MoveAbleUnit extends Base implements IMoveable <U>  {
     attack(enemy): void {
-        this.dayIncrementer()
-        enemy.dayIncrementer()
+        this.dayIncrementer();
+        enemy.gotAttacked(this.damage);
         // this is still asking enemy to increment not telling the sum bitch
         console.log(`Attacking enemy unit ${enemy.name} sir!` )
     }
-    defend(city: string) : void {
-        this.dayIncrementer()
+    defend(city: string): void {
+        this.dayIncrementer();
         console.log(`Defending city of ${city}`);
+    }
+    private dayIncrementer (): void {
+        this.daysActive++;
+    }
+    gotAttacked(damage: number): void {
+        this.health = this.health - damage;
+        this.dayIncrementer();
+    }
+    getDaysActive(): void{
+        console.log(`${this.daysActive} days active in the field sir!`);
+    }
+    getHealth(): void {
+        console.log(`Current health is ${this.health}`)
     }
 }
 
-class Tank extends MoveAbleUnit implements ITank {
-    constructor (public callSign: string){
-        super()
+// abstract class MoveAbleUnit extends Base implements IMoveable <U>  {
+//     attack(enemy): void {
+//         this.dayIncrementer();
+//         enemy.dayIncrementer();
+//         enemy.gotAttacked(this.damage);
+//         // this is still asking enemy to increment not telling the sum bitch
+//         console.log(`Attacking enemy unit ${enemy.name} sir!` )
+//     }
+//     defend(city: string): void {
+//         this.dayIncrementer();
+//         console.log(`Defending city of ${city}`);
+//     }
+// }
+
+class Tank extends Base implements ITank {
+    constructor (public callSign: string, attack: number){
+        super();
     }
     crewNumber = 0
 }
 
-class Soldier extends MoveAbleUnit implements ISolider{
+class Soldier extends Base implements ISolider{
     constructor (public name: string){
-        super()
+        super();
     }
 }
 
@@ -72,5 +94,6 @@ const enemySoldier = new Soldier("Jeff");
 friendylySoldier.attack(enemySoldier);
 friendylySoldier.defend("Berlin");
 
-console.log(friendylySoldier.daysActive);
-console.log(enemySoldier.daysActive);
+friendylySoldier.getDaysActive();
+enemySoldier.getDaysActive();
+enemySoldier.getHealth();
