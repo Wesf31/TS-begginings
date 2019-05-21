@@ -1,6 +1,7 @@
 interface IOne{
     daysActive: number;
     move(city: string): void;
+    dayIncrementer(daysActive: number): void;
 }
 
 interface IMoveable <T>{
@@ -34,20 +35,20 @@ abstract class Base {
     move(city: string): void {
         console.log(`Moving to city of ${city}`);
     }
-    public incrementer (): void {
+    dayIncrementer (): void {
         this.daysActive++;
     }
 }
 
 abstract class MoveAbleUnit extends Base implements IMoveable <U>  {
     attack(enemy): void {
-        this.incrementer()
-        enemy.incrementer()
+        this.dayIncrementer()
+        enemy.dayIncrementer()
         // this is still asking enemy to increment not telling the sum bitch
         console.log(`Attacking enemy unit ${enemy.name} sir!` )
     }
     defend(city: string) : void {
-        this.incrementer()
+        this.dayIncrementer()
         console.log(`Defending city of ${city}`);
     }
 }
@@ -63,7 +64,6 @@ class Soldier extends MoveAbleUnit implements ISolider{
     constructor (public name: string){
         super()
     }
-    
 }
 
 const friendylySoldier = new Soldier ("Mark");
