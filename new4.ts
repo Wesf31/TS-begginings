@@ -1,9 +1,9 @@
-interface IOne{
+interface IBase{
     daysActive: number;
     move(city: string): void;
 }
 
-interface IMoveable <T>{
+interface IActionAble <T>{
     attack(enemy: T): void;
     defend(city: string): void;
 }
@@ -17,18 +17,18 @@ interface IName{
     name:string;
 }
 
-interface ISolider extends IOne, IMoveable <ISolider>, IName {}
-interface ITank extends IOne, IMoveable <ITank>, IMachine {}
+interface ISolider extends IBase, IActionAble <ISolider>, IName {}
+interface ITank extends IBase, IActionAble <ITank>, IMachine {}
 //So with all these different interfaces and what not I can piece together units
-interface IMedic extends IOne, IName{
+interface IMedic extends IBase, IName{
     heal(solider: ISolider): void;
 }
 
-interface ISubmarine extends IOne, IMachine{
+interface ISubmarine extends IBase, IMachine{
     dive(depth: number): void;
 }
 
-abstract class Base implements IOne {
+abstract class Base implements IBase {
     daysActive: number = 0;
     move(city: string): void {
         console.log(`Moving to city of ${city}`);
@@ -37,18 +37,17 @@ abstract class Base implements IOne {
         this.daysActive++;
     }
     // So maybe I am still confused on how the principle of tell don't ask, but from what I understood is that data and the logic
-    // mutates that data should be all in the same place.
+    // that mutates that data should be all in the same place.
     getDaysActive(): void{
         console.log(`${this.daysActive} days active in the field sir!`);
     }
+    // worked with a buddy who has a tiny bit of expereince with java and he talked about geters and 
 }
 
-abstract class MoveAbleUnit extends Base implements IMoveable <U>  {
-    // still need a little coaching on these generics
-        attack(enemy: U): void {
+abstract class ActionAbleUnit extends Base {
+        attack(enemy): void {
         this.dayIncrementer();
         enemy.dayIncrementer();
-        // this is still asking enemy to increment not telling the sum bitch
         console.log(`Attacking enemy unit ${enemy.name} sir!` )
     }
         defend(city: string): void {
@@ -57,14 +56,14 @@ abstract class MoveAbleUnit extends Base implements IMoveable <U>  {
     }
 }
 
-class Tank extends MoveAbleUnit implements ITank {
+class Tank extends ActionAbleUnit implements ITank {
     constructor (public callSign: string, attack: number){
         super();
     }
     crewNumber = 0;
 }
 
-class Soldier extends MoveAbleUnit implements ISolider{
+class Soldier extends ActionAbleUnit implements ISolider{
     constructor (public name: string){
         super();
     }
