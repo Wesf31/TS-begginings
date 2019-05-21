@@ -17,10 +17,10 @@ interface IName{
     name:string;
 }
 
-interface ISolider extends IOne, IMoveable, IName{}
-interface ITank extends IOne, IMoveable, IMachine {}
+interface ISolider extends IOne, IMoveable <ISolider>, IName{}
+interface ITank extends IOne, IMoveable <ITank>, IMachine {}
 //So with all these different interfaces and what not I can piece together units
-//Is this two much inheritance? 
+//Is this too much inheritance? 
 interface IMedic extends IOne, IName{
     heal(solider: ISolider): void;
 }
@@ -29,24 +29,48 @@ interface ISubmarine extends IOne, IMachine{
     dive(depth: number) : void;
 }
 
-abstract class Base implements IBase {
-    constructor (public daysActive: 0){
-    }
-    move(city: string) : void {
-        this.daysActive++;
+abstract class Base implements IOne {
+    daysActive: number = 0;
+    move(city: string): void {
         console.log(`Moving to city of ${city}`);
+    }
+    public incrementer ( daysActive: number): void {
+        this.daysActive++;
     }
 }
 
-abstract class MoveAbleUnit <T> implements IMoveable  {
-    attack(enemy: T ): void {
+abstract class MoveAbleUnit extends Base implements IMoveable <U>  {
+    attack(enemy): void {
+        this.daysActive++;
+        enemy.incrementer()
+        // this is still asking enemy to increment not telling the sum bitch
         console.log(`Attacking enemy unit ${enemy.name} sir!` )
     }
-    defend(city: string) : void {       
+    defend(city: string) : void {
+        this.daysActive++;
         console.log(`Defending city of ${city}`);
     }
 }
 
-class Solider extends Base, MoveAbleUnit implements IOne, INmae, IMoveable{
+class Tank extends MoveAbleUnit implements ITank {
+    constructor (public callSign: string){
+        super()
+    }
+    crewNumber = 0
+}
+
+class Soldier extends MoveAbleUnit implements ISolider{
+    constructor (public name: string){
+        super()
+    }
     
 }
+
+const friendylySoldier = new Soldier ("Mark");
+const enemySoldier = new Soldier("Jeff");
+
+friendylySoldier.attack(enemySoldier);
+friendylySoldier.defend("Berlin");
+
+console.log(friendylySoldier.daysActive);
+console.log(enemySoldier.daysActive);

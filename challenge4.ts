@@ -34,7 +34,7 @@ interface IMedic extends IUnit {
     heal(soldier: IUnit): void;
 }
 
-interface ITank extends IUnit, Commands {
+interface ITank1 extends IUnit, Commands {
     crewNumber: number;
 }
 
@@ -48,13 +48,13 @@ abstract class Submarine {
     }
 }
 // Just get write out all the implementation of all the concreate classes that I need and progressively pull them up one up. I will have a heirarchy of at least 3 levels
-class Soldier {
+class Soldier1 {
     constructor(public name: string) {
         super()
     }
 }
 //
-class Tank extends Commands implements ITank  {
+class Tank1 extends Commands implements ITank  {
     constructor ( public callSign: string) {
         super();
     }
@@ -97,14 +97,3 @@ class SubmarineConcreate extends Submarine {
         console.log(`Dive Dive Dive! Depth ${depth}`)
     }
 }
-
-
-
-const friendylySoldier = new Soldier ("Mark");
-const enemySoldier = new Soldier("Jeff");
-
-friendylySoldier.attack(enemySoldier);
-friendylySoldier.defend("Berlin");
-
-console.log(friendylySoldier.daysActive);
-console.log(enemySoldier.daysActive);
