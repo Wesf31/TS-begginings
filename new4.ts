@@ -26,7 +26,7 @@ interface IMedic extends IOne, IName{
 }
 
 interface ISubmarine extends IOne, IMachine{
-    dive(depth: number) : void;
+    dive(depth: number): void;
 }
 
 abstract class Base implements IMoveable <L> {
@@ -40,7 +40,7 @@ abstract class Base implements IMoveable <L> {
         this.dayIncrementer();
         enemy.gotAttacked(this.damage);
         // this is still asking enemy to increment not telling the sum bitch
-        console.log(`Attacking enemy unit ${enemy.name} sir!` )
+        console.log(`Attacking enemy unit ${enemy.name} sir!`);
     }
     defend(city: string): void {
         this.dayIncrementer();
@@ -57,7 +57,7 @@ abstract class Base implements IMoveable <L> {
         console.log(`${this.daysActive} days active in the field sir!`);
     }
     getHealth(): void {
-        console.log(`Current health is ${this.health}`)
+        console.log(`Current health is ${this.health}`);
     }
 }
 
