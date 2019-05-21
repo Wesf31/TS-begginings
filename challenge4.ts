@@ -67,7 +67,7 @@ class Tank1 extends Commands implements ITank  {
     }
 }
 
-class Medic  {
+class Medic1  {
     constructor(public name: string) {
     }
     daysActive : number;

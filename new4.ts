@@ -28,7 +28,7 @@ interface ISubmarine extends IOne, IMachine{
     dive(depth: number): void;
 }
 
-abstract class Base {
+abstract class Base implements IOne {
     daysActive: number = 0;
     move(city: string): void {
         console.log(`Moving to city of ${city}`);
@@ -36,13 +36,16 @@ abstract class Base {
     public dayIncrementer (): void {
         this.daysActive++;
     }
+    // So maybe I am still confused on how the principle of tell don't ask, but from what I understood is that data and the logic
+    // mutates that data should be all in the same place.
     getDaysActive(): void{
         console.log(`${this.daysActive} days active in the field sir!`);
     }
 }
 
 abstract class MoveAbleUnit extends Base implements IMoveable <U>  {
-    attack(enemy): void {
+    // still need a little coaching on these generics 
+    attack(enemy: U): void {
         this.dayIncrementer();
         enemy.dayIncrementer();
         // this is still asking enemy to increment not telling the sum bitch
@@ -58,12 +61,22 @@ class Tank extends MoveAbleUnit implements ITank {
     constructor (public callSign: string, attack: number){
         super();
     }
-    crewNumber = 0
+    crewNumber = 0;
 }
 
 class Soldier extends MoveAbleUnit implements ISolider{
     constructor (public name: string){
         super();
+    }
+}
+
+class Medic extends Base implements IMedic {
+    constructor (public name: string){
+        super();
+    }
+    heal(soldier: ISolider) : void {
+        this.dayIncrementer()
+        console.log(`Healing solider ${soldier.name}`);
     }
 }
 
