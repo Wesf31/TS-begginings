@@ -18,7 +18,6 @@ interface INameAble{
 
 interface ISolider extends IBase, IActionAble <ISolider>, INameAble {}
 interface ITank extends IBase, IActionAble <ITank>, IMachine {}
-//So with all these different interfaces and what not I can piece together units
 interface IMedic extends IBase, INameAble{
     heal(solider: ISolider): void;
 }
